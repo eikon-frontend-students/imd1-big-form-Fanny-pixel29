@@ -97,7 +97,6 @@ textarea {
   background: transparent;
   padding: 18px 24px; /* espace intérieur */
   font-size: 1rem;
-  outline: none; /* enlève contour bleu */
 }
 
 textarea {
@@ -121,7 +120,7 @@ textarea {
   cursor: pointer;
   font-weight: 500;
 }
-
+/*cible tous les éléments <input> à l'intérieur d'un élément ayant la classe radio-label.*/
 .radio-label input {
   display: none; /* cache le vrai bouton radio */
 }
@@ -131,8 +130,9 @@ textarea {
   height: 24px;
   border: 2px solid #c28d46;
   border-radius: 50%;
-  display: block;
-  position: relative;
+  display: block; /*Le <span> devient un élément de type bloc.
+Il peut donc avoir une largeur et une hauteur définies.*/
+  position: relative; /*Permet de positionner plus facilement des éléments à l'intérieur du cercle.*/
 }
 
 /* rond intérieur quand sélectionné */
