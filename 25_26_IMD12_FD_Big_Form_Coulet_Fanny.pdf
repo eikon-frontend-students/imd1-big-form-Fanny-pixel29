@@ -1,6 +1,0 @@
-## Choix CSS 1 — Cursor
-**Notion utilisée:** J’ai utilisé le cursor pointer.
-**Où dans mon code:** Dans la classe .cards
-**Extrait:** .cards { cursor: pointer;}
-**Effet sur le rendu:** on voit différencie les éléments. On voit
-facilement quels éléments sont cliquables.
