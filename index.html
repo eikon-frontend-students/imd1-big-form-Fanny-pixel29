@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <!-- rend le site responsive sur téléphone -->
+    <title>Share your recipe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" /> 
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section class="hero">
+      <img src="cafés.jpg" alt="coffee" /> <!-- image de fond -->
+      <div class="overlay"></div>  <!-- couche sombre par-dessus l'image -->
+
+      <div class="hero-content"> <!-- contenu du hero titre et texte -->
+        <h1>Share your recipe</h1>
+        <p>Partage et découvre les recettes de la communauté Nespresso</p>
+      </div>
+    </section>
+
+
+  <!-- CONTENU PRINCIPAL -->
+    <main class="container">
+      <!-- formulaire d'envoi de la recette -->
+      <form class="recipe-form" action="https://formsubmit.co/your-email@gmail.com" method="POST">
+        <!--url de redirection aaprès envoi du formulaire qui est caché sur la page-->
+        <input type="hidden" name="redirect" value="http://127.0.0.1:5500/confirmation.html" />
+        <!-- champ de la recette-->
+        <div class="form-group">
+          <label for="recipe-name">nom de la recette</label>
+          <!-- champ saisietexte -->
+          <input type="text" id="recipe-name" name="recipe-name" />
+        </div>
+
+        <!-- choix type de capsule -->
+        <div class="form-group">
+          <!-- titre de la section -->
+          <p class="section-title">type de capsule</p>
+        <!-- conteneur des boutons radio -->
+          <div class="radio-group">
+            <!-- option original -->
+            <label class="radio-label">
+        <!-- bouton radio -->
+              <input type="radio" name="capsule-type" value="original" />
+
+            <!--cache le bouton plein pour changer la sélection entre le cercle stroke et le cercle plein -->
+              <span></span>
+              original
+            </label>
+         <!-- option vertuo -->
+            <label class="radio-label">
+              <input type="radio" name="capsule-type" value="vertuo" />
+              <span></span>
+              vertuo
+            </label>
+          </div>
+        </div>
+
+        <!-- CAPSULE -->
+        <div class="form-group">
+          <label for="capsule">capsule de café</label>
+          <input type="text" id="capsule" name="capsule" />
+        </div>
+
+        <!-- INGREDIENTS -->
+        <div class="form-group">
+          <h3>Ingrédients</h3>
+
+          <div class="ingredients-list">
+            <!-- ingrédient lait -->
+            <div class="ingredient-item">
+              <!--partie gauche, case à cocher et nom-->
+              <div class="ingredient-left">
+                <input type="checkbox" id="lait" />
+                <!-- texte lié à la checkbox -->
+                <label for="lait">lait</label> <!---utilisée pour associer un texte descriptif à un champ de formulaire-->
+              </div>
+<!-- partie droite, champ numérique et unité -->
+              <div class="ingredient-right">
+                <input type="number" min="0" value="0" />
+                <span>ml</span>
+              </div>
+            </div>
+
+
+            <!-- ITEM ingrédients -->
+            <div class="ingredient-item">
+              <div class="ingredient-left">
+                <input type="checkbox" id="vanille" />
+                <label for="vanille">sirop vanille</label>
+              </div>
+
+              <div class="ingredient-right">
+                <input type="number" min="0" value="0" />
+                <span>ml</span> <!--Pas de saut de ligne contrairment à div-->
+              </div>
+            </div>
+
+            <!-- ITEM ingrédients -->
+            <div class="ingredient-item">
+              <div class="ingredient-left">
+                <input type="checkbox" id="caramel" />
+                <label for="caramel">sirop caramel</label>
+              </div>
+
+              <div class="ingredient-right">
+                <input type="number" min="0" value="0" />
+                <span>ml</span>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="ingredient-item">
+              <div class="ingredient-left">
+                <input type="checkbox" id="matcha" />
+                <label for="matcha">matcha</label>
+              </div>
+
+              <div class="ingredient-right">
+                <input type="number" min="0" value="0" />
+                <span>mg</span>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="ingredient-item">
+              <div class="ingredient-left">
+                <input type="checkbox" id="cannelle" />
+                <label for="cannelle">cannelle</label>
+              </div>
+
+              <div class="ingredient-right">
+                <input type="number" min="0" value="0" />
+                <span>mg</span>
+              </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="ingredient-item">
+              <div class="ingredient-left">
+                <input type="checkbox" id="ube" />
+                <label for="ube">ube</label>
+              </div>
+
+              <div class="ingredient-right">
+                <input type="number" min="0" value="0" />
+                <span>mg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TEXTAREA -->
+        <div class="form-group">
+          <label for="other-ingredients">Autres ingrédients</label>
+      <!-- zone de texte -->
+          <textarea id="other-ingredients" name="other-ingredients"></textarea>
+        </div>
+
+        <!-- TEMPS PREPARATION-->
+        <div class="bottom-row">
+          <!-- TEMPS -->
+          <div class="prep-time">
+            <label for="time">temps de préparation</label>
+            <!-- boîte temps -->
+            <div class="time-box">
+              <input type="number" id="time" value="10" min="0" />
+              <span>min</span>
+            </div>
+          </div>
+
+          <!-- STARS -->
+          <div class="rating-container">
+            <p>facilité</p>
+<!-- Chaque radio correspond à une étoile --> <!-- id savoir quelle étoile il doit sélectionner quand on clique dessus, id et for se référèrent ensemble-->
+            <div class="rating">
+              <input type="radio" id="star5" name="rating" value="5" />
+              <label for="star5">★</label>
+
+              <input type="radio" id="star4" name="rating" value="4" />
+              <label for="star4">★</label>
+
+              <input type="radio" id="star3" name="rating" value="3" />
+              <label for="star3">★</label>
+
+              <input type="radio" id="star2" name="rating" value="2" />
+              <label for="star2">★</label>
+
+              <input type="radio" id="star1" name="rating" value="1" />
+              <label for="star1">★</label>
+            </div>
+          </div>
+        </div>
+
+            <!-- AJOUTER UNE PHOTO -->
+
+            <div class="form-group">
+              <label for="photo-upload">ajouter une photo</label>
+
+              <div class="upload-box">
+                <!-- INPUT FILE --><!-- vrai input caché -->
+                <input
+                  type="file"
+                  id="photo-upload"
+                  accept=".jpg, .jpeg, .png, .webp, .pdf"
+                />
+
+              <!-- faux bouton stylisé --> <!-- Bouton personnalisé qui ouvre le sélecteur de fichiers -->
+                <label for="photo-upload" class="custom-upload">
+                <!-- icône -->
+                  <div class="upload-icon">⤴</div>
+
+                  <span>upload</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- bouton envoyer -->
+        <button type="submit" class="navigation" href="confirmation.html"> Partager la recette </button>
+      </form>
+    </main>
+  </body>
+</html>
