@@ -1,0 +1,441 @@
+/* RESET */
+/* * = sélectionne TOUS les éléments de la page */
+* {
+  margin: 0; /* enlève toutes les marges par défaut */
+  padding: 0; /* enlève tous les espacements internes par défaut */
+  box-sizing: border-box; /* inclut padding + border dans la largeur totale */
+}
+/* BODY = toute la page */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f6f6f6;
+  color: #c28d46;
+}
+
+/* HERO */
+
+.hero {
+  position: relative; /* permet de positionner des éléments à l’intérieur */
+  width: 100%; /* prend toute la largeur */
+  height: 320px; /* hauteur fixe */
+  overflow: hidden; /* cache ce qui dépasse */
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* l’image remplit l’espace sans déformation */
+}
+/* couche sombre */
+.overlay {
+  position: absolute; /* position libre */
+  inset: 0; /* prend tout l’espace */
+  background: black;
+  opacity: 0.4;
+}
+
+/* texte sur l’image */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3rem; /* taille du texte */
+  margin-bottom: 20px;
+  font-weight: 700; /* texte gras */
+}
+
+.hero-content p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* CONTAINER */
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.recipe-form {
+  width: 100%;
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+/* LABELS */
+
+label,
+.section-title,
+h3 {
+  display: block; /* prend toute la ligne */
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* INPUTS */
+/* champs texte + textarea */
+input[type="text"],
+textarea {
+  width: 100%;
+  border: 2px solid #c28d46; /* contour */
+  border-radius: 40px;
+  background: transparent;
+  padding: 18px 24px; /* espace intérieur */
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 140px;
+  border-radius: 35px;
+  resize: vertical;
+}
+
+/* RADIO BUTTONS */
+
+.radio-group {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap; /* passe à la ligne si besoin */
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-weight: 500;
+}
+/*cible tous les éléments <input> à l'intérieur d'un élément ayant la classe radio-label.*/
+.radio-label input {
+  display: none; /* cache le vrai bouton radio */
+}
+
+.radio-label span {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #c28d46;
+  border-radius: 50%;
+  display: block; /*Le <span> devient un élément de type bloc.
+Il peut donc avoir une largeur et une hauteur définies.*/
+  position: relative; /*Permet de positionner plus facilement des éléments à l'intérieur du cercle.*/
+}
+
+/* rond intérieur quand sélectionné */
+.radio-label input:checked + span::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #c28d46;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* INGREDIENTS */
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ingredient-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ingredient-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* checkbox */
+.ingredient-left input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  accent-color: #c28d46;
+}
+
+.ingredient-right {
+  border: 2px solid #c28d46;
+  border-radius: 30px;
+  padding: 10px 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ingredient-right input {
+  width: 50px;
+  border: none;
+  background: transparent;
+  color: #c28d46;
+  font-size: 1rem;
+}
+/* QUANTITY BOX */
+
+.quantity-box {
+  border: 2px solid #c28d46;
+  border-radius: 40px;
+
+  padding: 10px 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 140px;
+}
+
+/* NUMBER INPUT */
+
+.quantity-box input {
+  width: 45px;
+
+  border: none;
+  background: transparent;
+
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  color: #c28d46;
+
+  outline: none;
+}
+
+/* ENLEVER LES FLÈCHES PAR DÉFAUT */
+/* enlève flèches chrome */
+.quantity-box input::-webkit-outer-spin-button,
+.quantity-box input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity-box input[type="number"] {
+  appearance: textfield;
+}
+
+/* ML */
+
+.quantity-box span {
+  font-weight: 600;
+}
+
+/* BUTTONS */
+
+.quantity-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+/* boutons + - */
+.quantity-buttons button {
+  border: none;
+  background: transparent;
+
+  color: #c28d46;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  line-height: 1;
+  transition: 0.2s;
+}
+
+.quantity-buttons button:hover {
+  opacity: 0.6;
+}
+/* BOTTOM ROW */
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* TIME */
+
+.time-box {
+  border: 2px solid #c28d46;
+  border-radius: 40px;
+  padding: 15px 25px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.time-box input {
+  width: 60px;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #c28d46;
+  outline: none;
+}
+
+/* STARS */
+
+.rating-container p {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse; /* inverse l’ordre */
+  gap: 8px;
+}
+/* cache radio */
+.rating input {
+  display: none;
+}
+/* étoile */
+.rating label {
+  font-size: 3rem;
+  color: transparent;
+  -webkit-text-stroke: 1px #c28d46; /* contour */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* HOVER */
+
+.rating label:hover ~ label {
+  /* étoiles sélectionnées */
+  color: #c28d46;
+}
+
+/* CHECKED */
+
+.rating input:checked ~ label {
+  color: #c28d46;
+}
+
+/* UPLOAD BOX */
+
+.upload-box {
+  border: 2px solid #c28d46;
+  border-radius: 35px;
+
+  padding: 40px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+/* cache vrai input file */
+#photo-upload {
+  display: none;
+}
+
+/* faux bouton */
+
+.custom-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+
+  cursor: pointer;
+}
+
+/* ICÔNE */
+
+.upload-icon {
+  font-size: 3rem;
+  color: #d4b07a;
+}
+
+/* BOUTON */
+
+.custom-upload span {
+  background: #c28d46;
+  color: white;
+
+  padding: 12px 40px;
+  border-radius: 30px;
+
+  font-weight: 500;
+  font-size: 0.95rem;
+
+  transition: 0.3s;
+}
+/* bouton upload */
+.custom-upload:hover span {
+  opacity: 0.8;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  color: white;
+  background-color: #c28d46;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 30px;
+}
+.confirmation img {
+  object-fit: cover;
+  width: 100%;
+  height: 900px;
+}
+.confirmation-text,
+h5 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  width: 400px;
+}
+
+.overlay {
+  opacity: 0.5;
+  object-fit: cover;
+}
+
+.check {
+  font-size: 50px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  color: #f6f6f6;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.cards {
+  cursor: pointer;
+}
